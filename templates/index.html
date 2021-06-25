@@ -134,6 +134,7 @@
       <!-- End Cta Section -->
 
       <!-- ======= Appointment Section ======= -->
+      {% if result == null %}
       <section id="appointment" class="appointment section-bg">
         <div class="container" data-aos="fade-up">
           <div class="section-title">
@@ -145,8 +146,8 @@
           </div>
 
           <form
-            action=""
-            method="post"
+            action="{{url_for('main')}}"
+            method="POST"
             role="form"
             class="php-email-form"
             data-aos="fade-up"
@@ -166,8 +167,8 @@
                 />
               </div>
               <div class="col-md-4 form-group">
-                <select name="anaemia" id="anaemia" class="form-select">
-                  <option value="">
+                <select required name="anaemia" id="anaemia" class="form-select">
+                  <option value="" >
                     Anaemia ?
                   </option>
                   <option value="1">Yes</option>
@@ -177,18 +178,19 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-md-4 form-group mt-3">
-                <select name="gender" id="gender" class="form-select">
+                <select required name="creatine_phosphokinase" id="creatine_phosphokinase" class="form-select">
                   <option value="">
-                    Gender
+                    Creatine Phosphokinase
                   </option>
-                  <option value="1">Male</option>
-                  <option value="0">Female</option>
+                  <option value="582">High</option>
+                  <option value="250">Normal</option>
+                  <option value="116.5">Low</option>
                 </select>
               </div>
               <div class="col-md-4 form-group mt-3">
-                <select name="anaemia" id="anaemia" class="form-select">
+                <select required name="diabetes" id="diabetes" class="form-select">
                   <option value="">
-                    Diabetes ?
+                    Diabetes ? 
                   </option>
                   <option value="1">Yes</option>
                   <option value="0">No</option>
@@ -197,16 +199,77 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-md-4 form-group mt-3">
-                <select name="anaemia" id="anaemia" class="form-select">
+                <select required name="ejection_fraction" id="ejection_fraction" class="form-select">
                   <option value="">
-                    High Blood Pressure ?
+                    Ejection Fraction
+                  </option>
+                  <option value="45">High</option>
+                  <option value="38">Normal</option>
+                  <option value="30">Low</option>
+                </select>
+              </div>
+              <div class="col-md-4 form-group mt-3">
+                <select required name="high_blood_pressure" id="high_blood_pressure" class="form-select">
+                  <option value="">
+                    High Blood Pressure ? 
                   </option>
                   <option value="1">Yes</option>
                   <option value="0">No</option>
                 </select>
+              </div>     
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4 form-group mt-3">
+                <select required name="platelets" id="platelets" class="form-select">
+                  <option value="">
+                    Platelets
+                  </option>
+                  <option value="850000">Very High</option>
+                  <option value="303500">High</option>
+                  <option value="262000">Normal</option>
+                  <option value="212500">Low</option>
+                  <option value="25100">Very Low</option>
+                </select>
               </div>
               <div class="col-md-4 form-group mt-3">
-                <select name="anaemia" id="anaemia" class="form-select">
+                <select required name="serum_creatinine" id="serum_creatinine" class="form-select">
+                  <option value="">
+                    Serum Creatinine
+                  </option>
+                  <option value="9.4">Very High</option>
+                  <option value="1.4">High</option>
+                  <option value="1.1">Normal</option>
+                  <option value="0.9">Low</option>
+                  <option value="0.5">Very Low</option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4 form-group mt-3">
+                <select required name="serum_sodium" id="serum_sodium" class="form-select">
+                  <option value="">
+                    	Serum Sodium
+                  </option>
+                  <option value="148">Very High</option>
+                  <option value="140">High</option>
+                  <option value="137">Normal</option>
+                  <option value="134">Low</option>
+                  <option value="113">Very Low</option>
+                </select>
+              </div>
+              <div class="col-md-4 form-group mt-3">
+                <select required name="sex" id="sex" class="form-select">
+                  <option value="">
+                    Sex ?
+                  </option>
+                  <option value="1">Male</option>
+                  <option value="0">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4 form-group mt-3">
+                <select required name="smoking" id="smoking" class="form-select">
                   <option value="">
                     Smoking ?
                   </option>
@@ -214,10 +277,22 @@
                   <option value="0">No</option>
                 </select>
               </div>
+              <div class="col-md-4 form-group mt-3">
+                <select required name="time" id="time" class="form-select">
+                  <option value="">
+                    	Time in days
+                  </option>
+                  <option value="285">I include cigarettes in my groceries</option>
+                  <option value="203">Its been a while now, might take 2 or more</option>
+                  <option value="115">Just started 1 daily</option>
+                  <option value="73">3 - 4 times a week</option>
+                  <option value="4">Once in a while</option>
+                </select>
+              </div>
             </div>
             <div class="row justify-content-center mt-3">
               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <button class="appointment-btn" type=="submit">
+                <button class="appointment-btn" type="submit">
                   START PROCESSING NOW
                 </button>
               </div>
@@ -225,7 +300,55 @@
           </form>
         </div>
       </section>
+      {% endif %}
       <!-- End Appointment Section -->
+
+      
+      <!-- ======= Featured Services Section ======= -->
+      
+      {% if result %}
+      <section id="featured-services" class="featured-services">
+        <div class="container" data-aos="fade-up">
+          <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="text-center mb-5">Here are the results</h2>
+            </div>
+            {% for variable, value in original_input.items() %}
+            <div
+              class="col-md-6 col-lg-3  mb-5 text-center"
+            >
+              <div class="icon-box" data-aos="fade-up">
+                <h4 class="title">{{variable}}</h4>
+                <p class="description">
+                  {{value}}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+            <div
+              class="col-md-12 col-lg-12 text-center mb-5 mb-lg-0"
+            >
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                <h4 class="title">Quick Test Results</h4>
+                <p class="description">
+                  {{result}}
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="row justify-content-center mt-3">
+              <a href="/" class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <button class="appointment-btn" type="button">
+                  START AGAIN
+                </button>
+              </a>
+            </div>
+        </div>
+      </section>
+            {% endif %}
+      <!-- End Featured Services Section -->
     </main>
     <!-- End #main -->
 
