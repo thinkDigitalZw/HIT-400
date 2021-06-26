@@ -54,87 +54,8 @@
 
   <body>
     <main id="main">
-      <!-- ======= Featured Services Section ======= -->
-      <!-- <section id="featured-services" class="featured-services">
-        <div class="container" data-aos="fade-up">
-          <div class="row">
-            <div
-              class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"
-            >
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                <p class="description">
-                  Voluptatum deleniti atque corrupti quos dolores et quas
-                  molestias excepturi
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"
-            >
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="fas fa-pills"></i></div>
-                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                <p class="description">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"
-            >
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="fas fa-thermometer"></i></div>
-                <h4 class="title"><a href="">Magni Dolores</a></h4>
-                <p class="description">
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                  qui officia
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"
-            >
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon"><i class="fas fa-dna"></i></div>
-                <h4 class="title"><a href="">Nemo Enim</a></h4>
-                <p class="description">
-                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <!-- End Featured Services Section -->
-
-      <!-- ======= Cta Section ======= -->
-      <!-- <section id="cta" class="cta">
-        <div class="container" data-aos="zoom-in">
-          <div class="text-center">
-            <h3>In an emergency? Need help now?</h3>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <a class="cta-btn scrollto" href="#appointment">
-              Make an Make an Appointment
-            </a>
-          </div>
-        </div>
-      </section> -->
-      <!-- End Cta Section -->
-
       <!-- ======= Appointment Section ======= -->
-      {% if result == null %}
+      <!-- {% if result == null %} -->
       <section id="appointment" class="appointment section-bg">
         <div class="container" data-aos="fade-up">
           <div class="section-title">
@@ -153,7 +74,7 @@
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <div class="row justify-content-center">
+            <div class="row justify-content-center">              
               <div class="col-md-4 form-group">
                 <input
                   type="number"
@@ -163,100 +84,142 @@
                   placeholder="Age"
                   min="0"
                   max="150"
+                  step="1"
                   required
                 />
               </div>
               <div class="col-md-4 form-group">
-                <select required name="anaemia" id="anaemia" class="form-select">
+                <select required name="cp" id="cp" class="form-select">
                   <option value="" >
-                    Anaemia ?
+                    Chest Pain ?
+                  </option>
+                  <option value="3">Extreme</option>
+                  <option value="2">Intense</option>
+                  <option value="1">Moderate</option>
+                  <option value="0">None</option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4 form-group mt-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="trestbps"
+                  id="trestbps"
+                  placeholder="trestbps"
+                  min="0"
+                  max="1000"
+                  required
+                />
+              </div>
+               <div class="col-md-4 form-group mt-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="chol"
+                  id="chol"
+                  placeholder="Cholestrol"
+                  min="0"
+                  max="1000"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4 form-group mt-3">
+                <select required name="fbs" id="fbs" class="form-select">
+                  <option value="">
+                    FBS ? 
                   </option>
                   <option value="1">Yes</option>
                   <option value="0">No</option>
                 </select>
               </div>
+              <div class="col-md-4 form-group mt-3">
+                <select required name="restecg" id="restecg" class="form-select">
+                  <option value="">
+                    Restecg ? 
+                  </option>
+                  <option value="2">High</option>
+                  <option value="1">Moderate</option>
+                  <option value="0">Low</option>
+                </select>
+              </div>    
             </div>
             <div class="row justify-content-center">
               <div class="col-md-4 form-group mt-3">
-                <select required name="creatine_phosphokinase" id="creatine_phosphokinase" class="form-select">
-                  <option value="">
-                    Creatine Phosphokinase
-                  </option>
-                  <option value="582">High</option>
-                  <option value="250">Normal</option>
-                  <option value="116.5">Low</option>
-                </select>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="thalach"
+                  id="thalach"
+                  placeholder="Thalach"
+                  min="0"
+                  max="1000"
+                  required
+                />
               </div>
               <div class="col-md-4 form-group mt-3">
-                <select required name="diabetes" id="diabetes" class="form-select">
+                <select required name="exang" id="exang" class="form-select">
                   <option value="">
-                    Diabetes ? 
+                    Exang ?
                   </option>
-                  <option value="1">Yes</option>
-                  <option value="0">No</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <select required name="ejection_fraction" id="ejection_fraction" class="form-select">
-                  <option value="">
-                    Ejection Fraction
-                  </option>
-                  <option value="45">High</option>
-                  <option value="38">Normal</option>
-                  <option value="30">Low</option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="high_blood_pressure" id="high_blood_pressure" class="form-select">
-                  <option value="">
-                    High Blood Pressure ? 
-                  </option>
-                  <option value="1">Yes</option>
-                  <option value="0">No</option>
-                </select>
-              </div>     
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <select required name="platelets" id="platelets" class="form-select">
-                  <option value="">
-                    Platelets
-                  </option>
-                  <option value="850000">Very High</option>
-                  <option value="303500">High</option>
-                  <option value="262000">Normal</option>
-                  <option value="212500">Low</option>
-                  <option value="25100">Very Low</option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="serum_creatinine" id="serum_creatinine" class="form-select">
-                  <option value="">
-                    Serum Creatinine
-                  </option>
-                  <option value="9.4">Very High</option>
-                  <option value="1.4">High</option>
-                  <option value="1.1">Normal</option>
-                  <option value="0.9">Low</option>
-                  <option value="0.5">Very Low</option>
+                  <option value="1">High</option>
+                  <option value="0">Low</option>
                 </select>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-md-4 form-group mt-3">
-                <select required name="serum_sodium" id="serum_sodium" class="form-select">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="oldpeak"
+                  id="oldpeak"
+                  placeholder="Old Peak"
+                  min="0"
+                  max="1000"
+                  step="0.1"
+                  required
+                />
+              </div>
+              <div class="col-md-4 form-group mt-3">
+                <select required name="slope" id="slope" class="form-select">
                   <option value="">
-                    	Serum Sodium
+                    Slope ?
                   </option>
-                  <option value="148">Very High</option>
-                  <option value="140">High</option>
-                  <option value="137">Normal</option>
-                  <option value="134">Low</option>
-                  <option value="113">Very Low</option>
+                  <option value="2">High</option>
+                  <option value="1">Moderate</option>
+                  <option value="0">Low</option>
                 </select>
               </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4 form-group mt-3">
+                <select required name="ca" id="ca" class="form-select">
+                  <option value="">
+                    CA ?
+                  </option>
+                  <option value="3">Extreme</option>
+                  <option value="2">Intense</option>
+                  <option value="1">Moderate</option>
+                  <option value="0">None</option>
+                </select>
+              </div>
+              <div class="col-md-4 form-group mt-3">
+                <select required name="thal" id="thal" class="form-select">
+                  <option value="">
+                    Thal ?
+                  </option>
+                  <option value="3">Extreme</option>
+                  <option value="2">Intense</option>
+                  <option value="1">Moderate</option>
+                  <option value="0">None</option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-center">
               <div class="col-md-4 form-group mt-3">
                 <select required name="sex" id="sex" class="form-select">
                   <option value="">
@@ -264,29 +227,6 @@
                   </option>
                   <option value="1">Male</option>
                   <option value="0">Female</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <select required name="smoking" id="smoking" class="form-select">
-                  <option value="">
-                    Smoking ?
-                  </option>
-                  <option value="1">Yes</option>
-                  <option value="0">No</option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="time" id="time" class="form-select">
-                  <option value="">
-                    	Time in days
-                  </option>
-                  <option value="285">I include cigarettes in my groceries</option>
-                  <option value="203">Its been a while now, might take 2 or more</option>
-                  <option value="115">Just started 1 daily</option>
-                  <option value="73">3 - 4 times a week</option>
-                  <option value="4">Once in a while</option>
                 </select>
               </div>
             </div>
@@ -300,10 +240,20 @@
           </form>
         </div>
       </section>
-      {% endif %}
+      <!-- {% endif %} -->
       <!-- End Appointment Section -->
 
-      
+      <!-- {% if result %}
+      <section id="featured-services" class="featured-services">
+        <div class="container" data-aos="fade-up">
+          <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="text-center mb-5">I am still young and learning</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+            {% endif %} -->
       <!-- ======= Featured Services Section ======= -->
       
       {% if result %}
@@ -338,7 +288,7 @@
             </div>
 
           </div>
-          <div class="row justify-content-center mt-3">
+          <div class="row justify-content-center mt-5 ">
               <a href="/" class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <button class="appointment-btn" type="button">
                   START AGAIN
@@ -371,12 +321,10 @@
     >
       <i class="bi bi-arrow-up-short"></i>
     </a>
-    <script
-      async
-      src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"
     ></script>
 
     <!-- Template Main JS File -->
-    <script async src="../static/js/main.js"></script>
+    <script src="../static/js/main.js"></script>
   </body>
 </html>

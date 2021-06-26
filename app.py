@@ -1,8 +1,8 @@
 
-  
+
 import flask
 import pandas as pd
-from joblib import dump, load
+from joblib import load
 
 
 with open(f'models/randomForest.joblib', 'rb') as f:
@@ -19,28 +19,28 @@ def main():
 
     if flask.request.method == 'POST':
         age = flask.request.form['age']
-        anaemia = flask.request.form['anaemia']
-        creatine_phosphokinase = flask.request.form['creatine_phosphokinase']
-        diabetes = flask.request.form['diabetes']
-        ejection_fraction = flask.request.form['ejection_fraction']
-        high_blood_pressure = flask.request.form['high_blood_pressure']
-        platelets = flask.request.form['platelets']
-        serum_creatinine = flask.request.form['serum_creatinine']
-        serum_sodium = flask.request.form['serum_sodium']
         sex = flask.request.form['sex']
-        smoking = flask.request.form['smoking']
-        time = flask.request.form['time']
+        cp = flask.request.form['cp']
+        trestbps = flask.request.form['trestbps']
+        chol = flask.request.form['chol']
+        fbs = flask.request.form['fbs']
+        restecg = flask.request.form['restecg']
+        thalach = flask.request.form['thalach']
+        exang = flask.request.form['exang']
+        oldpeak = flask.request.form['oldpeak']
+        slope = flask.request.form['slope']
+        ca = flask.request.form['ca']
+        thal = flask.request.form['thal']
 
-        input_variables = pd.DataFrame([[age,anaemia, creatine_phosphokinase, diabetes, ejection_fraction, high_blood_pressure, platelets, serum_creatinine, serum_sodium, sex, smoking, time]],
-        columns=['age', 'anaemia', 'creatine_phosphokinase', 'diabetes', 'ejection_fraction', 'high_blood_pressure', 'platelets', 'serum_creatinine', 'serum_sodium', 'sex', 'smoking', 'time' ],
-        dtype='float',
-        index=['input'])
-
+        input_variables = pd.DataFrame([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]],
+                                       columns=['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
+                                                'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+                                       dtype='float',
+                                       index=['input'])
         predictions = randomForest.predict(input_variables)[0]
-        print(predictions,'WTF')
 
-        return flask.render_template('index.html', original_input={'Age': age, 'Anaemia': anaemia, 'Creatine Phosphokinase': creatine_phosphokinase, 'Diabetes': diabetes, 'Ejection Fraction': ejection_fraction, 'High Blood Pressure': high_blood_pressure, 'Platelets': platelets, 'Serum Creatinine': serum_creatinine, 'Serum Sodium': serum_sodium, 'Sex': sex, 'Smoking': smoking, 'Time':time  },
-                                     result=predictions)
+    return flask.render_template('index.html', original_input={'Age': age, 'Sex': sex, 'Chest Pain': cp, 'Trestbps': trestbps, 'Cholestrol Amount': chol, 'FBS': fbs, 'Restecg': restecg, 'Thalach': thalach, 'Exang': exang, 'Old Peak': oldpeak, 'Slope': slope, 'CA': ca, 'Thal': thal},
+                                 result=predictions)
 
 
 if __name__ == '__main__':
