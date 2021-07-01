@@ -2,329 +2,73 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-    <title>Heart Prediction System</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+    <title>Heart Failure Prediction & Prevention System</title>
 
-    <!-- Favicons -->
-    <link href="../static" rel="icon" />
-    <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link
-      href="../static/vendor/animate.css/animate.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="../static/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="../static/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link
-      href="../static/vendor/boxicons/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <!-- Custom fonts for this template-->
     <link
       href="../static/vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"
+      type="text/css"
     />
     <link
-      href="../static/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="../static/vendor/swiper/swiper-bundle.min.css"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
 
-    <!-- Template Main CSS File -->
-    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- Custom styles for this template-->
+    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <main id="main">
-      <!-- ======= Appointment Section ======= -->
-      <!-- {% if result == null %} -->
-      <section id="appointment" class="appointment section-bg">
-        <div class="container" data-aos="fade-up">
-          <div class="section-title">
-            <h2>Heart Failure Predicition & Prevention System</h2>
-            <p>
-              Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-              ex aliquid fuga eum quidem. Sit sint consectetur velit..
-            </p>
-          </div>
-
-          <form
-            action="{{url_for('main')}}"
-            method="POST"
-            role="form"
-            class="php-email-form"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div class="row justify-content-center">              
-              <div class="col-md-4 form-group">
-                <input
-                  type="number"
-                  class="form-control"
-                  name="age"
-                  id="age"
-                  placeholder="Age"
-                  min="0"
-                  max="150"
-                  step="1"
-                  required
-                />
+  <body class="">
+    <div class="container">
+      <!-- Outer Row -->
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row justify-content-center">
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4">
+                        Heart Failure Prediction & Prevention System
+                      </h1>
+                      <h4 class="h4 text-gray-900 mb-4">LOGIN</h4>
+                    </div>
+                    <form class="user">
+                      <a
+                        href="/login"
+                        class="btn btn-primary btn-user btn-block"
+                      >
+                        <i class="fab fa-google-plus-g"></i> Login
+                      </a>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-4 form-group">
-                <select required name="cp" id="cp" class="form-select">
-                  <option value="" >
-                    Chest Pain ?
-                  </option>
-                  <option value="3">Extreme</option>
-                  <option value="2">Intense</option>
-                  <option value="1">Moderate</option>
-                  <option value="0">None</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  name="trestbps"
-                  id="trestbps"
-                  placeholder="trestbps"
-                  min="0"
-                  max="1000"
-                  required
-                />
-              </div>
-               <div class="col-md-4 form-group mt-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  name="chol"
-                  id="chol"
-                  placeholder="Cholestrol"
-                  min="0"
-                  max="1000"
-                  required
-                />
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <select required name="fbs" id="fbs" class="form-select">
-                  <option value="">
-                    FBS ? 
-                  </option>
-                  <option value="1">Yes</option>
-                  <option value="0">No</option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="restecg" id="restecg" class="form-select">
-                  <option value="">
-                    Restecg ? 
-                  </option>
-                  <option value="2">High</option>
-                  <option value="1">Moderate</option>
-                  <option value="0">Low</option>
-                </select>
-              </div>    
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  name="thalach"
-                  id="thalach"
-                  placeholder="Thalach"
-                  min="0"
-                  max="1000"
-                  required
-                />
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="exang" id="exang" class="form-select">
-                  <option value="">
-                    Exang ?
-                  </option>
-                  <option value="1">High</option>
-                  <option value="0">Low</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  name="oldpeak"
-                  id="oldpeak"
-                  placeholder="Old Peak"
-                  min="0"
-                  max="1000"
-                  step="0.1"
-                  required
-                />
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="slope" id="slope" class="form-select">
-                  <option value="">
-                    Slope ?
-                  </option>
-                  <option value="2">High</option>
-                  <option value="1">Moderate</option>
-                  <option value="0">Low</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <select required name="ca" id="ca" class="form-select">
-                  <option value="">
-                    CA ?
-                  </option>
-                  <option value="3">Extreme</option>
-                  <option value="2">Intense</option>
-                  <option value="1">Moderate</option>
-                  <option value="0">None</option>
-                </select>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select required name="thal" id="thal" class="form-select">
-                  <option value="">
-                    Thal ?
-                  </option>
-                  <option value="3">Extreme</option>
-                  <option value="2">Intense</option>
-                  <option value="1">Moderate</option>
-                  <option value="0">None</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-md-4 form-group mt-3">
-                <select required name="sex" id="sex" class="form-select">
-                  <option value="">
-                    Sex ?
-                  </option>
-                  <option value="1">Male</option>
-                  <option value="0">Female</option>
-                </select>
-              </div>
-            </div>
-            <div class="row justify-content-center mt-3">
-              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <button class="appointment-btn" type="submit">
-                  START PROCESSING NOW
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-      <!-- {% endif %} -->
-      <!-- End Appointment Section -->
-
-      <!-- {% if result %}
-      <section id="featured-services" class="featured-services">
-        <div class="container" data-aos="fade-up">
-          <div class="row justify-content-center">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h2 class="text-center mb-5">I am still young and learning</h2>
             </div>
           </div>
-        </div>
-      </section>
-            {% endif %} -->
-      <!-- ======= Featured Services Section ======= -->
-      
-      {% if result %}
-      <section id="featured-services" class="featured-services">
-        <div class="container" data-aos="fade-up">
-          <div class="row justify-content-center">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h2 class="text-center mb-5">Here are the results</h2>
-            </div>
-            {% for variable, value in original_input.items() %}
-            <div
-              class="col-md-6 col-lg-3  mb-5 text-center"
-            >
-              <div class="icon-box" data-aos="fade-up">
-                <h4 class="title">{{variable}}</h4>
-                <p class="description">
-                  {{value}}
-                </p>
-              </div>
-            </div>
-            {% endfor %}
-            <div
-              class="col-md-12 col-lg-12 text-center mb-5 mb-lg-0"
-            >
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                <h4 class="title">Quick Test Results</h4>
-                <p class="description">
-                  {{result}}
-                </p>
-              </div>
-            </div>
-
-          </div>
-          <div class="row justify-content-center mt-5 ">
-              <a href="/" class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <button class="appointment-btn" type="button">
-                  START AGAIN
-                </button>
-              </a>
-            </div>
-        </div>
-      </section>
-            {% endif %}
-      <!-- End Featured Services Section -->
-    </main>
-    <!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer class="footer" id="footer">
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright
-          <strong><span>Heart Prediction System</span></strong>
-          . All Rights Reserved
         </div>
       </div>
-    </footer>
-    <!-- End Footer -->
+    </div>
 
-    <div id="preloader"></div>
-    <a
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-    >
-      <i class="bi bi-arrow-up-short"></i>
-    </a>
-    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"
-    ></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="../static/js/main.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
   </body>
 </html>

@@ -1,0 +1,226 @@
+{% extends 'layout.html' %} {% block body %}
+<main id="main">
+  <!-- ======= Appointment Section ======= -->
+  <!-- {% if result == null %} -->
+  <section id="appointment" class="appointment section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2>Heart Failure Predicition & Prevention System</h2>
+      </div>
+
+      <form
+        action="{{url_for('predict')}}"
+        method="POST"
+        role="form"
+        class="php-email-form"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group">
+            <input
+              type="number"
+              class="form-control"
+              name="age"
+              id="age"
+              placeholder="Age"
+              min="0"
+              max="150"
+              step="1"
+              required
+            />
+          </div>
+          <div class="col-md-4 form-group">
+            <select required name="cp" id="cp" class="form-control">
+              <option value="">Chest Pain ?</option>
+              <option value="3">Extreme</option>
+              <option value="2">Intense</option>
+              <option value="1">Moderate</option>
+              <option value="0">None</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group mt-3">
+            <input
+              type="number"
+              class="form-control"
+              name="trestbps"
+              id="trestbps"
+              placeholder="trestbps"
+              min="0"
+              max="1000"
+              required
+            />
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <input
+              type="number"
+              class="form-control"
+              name="chol"
+              id="chol"
+              placeholder="Cholestrol"
+              min="0"
+              max="1000"
+              required
+            />
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group mt-3">
+            <select required name="fbs" id="fbs" class="form-control">
+              <option value="">FBS ?</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <select required name="restecg" id="restecg" class="form-control">
+              <option value="">Restecg ?</option>
+              <option value="2">High</option>
+              <option value="1">Moderate</option>
+              <option value="0">Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group mt-3">
+            <input
+              type="number"
+              class="form-control"
+              name="thalach"
+              id="thalach"
+              placeholder="Thalach"
+              min="0"
+              max="1000"
+              required
+            />
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <select required name="exang" id="exang" class="form-control">
+              <option value="">Exang ?</option>
+              <option value="1">High</option>
+              <option value="0">Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group mt-3">
+            <input
+              type="number"
+              class="form-control"
+              name="oldpeak"
+              id="oldpeak"
+              placeholder="Old Peak"
+              min="0"
+              max="1000"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <select required name="slope" id="slope" class="form-control">
+              <option value="">Slope ?</option>
+              <option value="2">High</option>
+              <option value="1">Moderate</option>
+              <option value="0">Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group mt-3">
+            <select required name="ca" id="ca" class="form-control">
+              <option value="">CA ?</option>
+              <option value="3">Extreme</option>
+              <option value="2">Intense</option>
+              <option value="1">Moderate</option>
+              <option value="0">None</option>
+            </select>
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <select required name="thal" id="thal" class="form-control">
+              <option value="">Thal ?</option>
+              <option value="3">Extreme</option>
+              <option value="2">Intense</option>
+              <option value="1">Moderate</option>
+              <option value="0">None</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 form-group mt-3">
+            <select required name="sex" id="sex" class="form-control">
+              <option value="">Sex ?</option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <button class="btn btn-primary btn-block" type="submit">
+              START PROCESSING NOW
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- {% endif %} -->
+  <!-- End Appointment Section -->
+
+  <!-- {% if result %}
+      <section id="featured-services" class="featured-services">
+        <div class="container" data-aos="fade-up">
+          <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="text-center mb-5">I am still young and learning</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+            {% endif %} -->
+  <!-- ======= Featured Services Section ======= -->
+
+  {% if result %}
+  <section id="featured-services" class="featured-services">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2 class="text-center mb-5">Here are the results</h2>
+        </div>
+        {% for variable, value in original_input.items() %}
+        <div class="card mb-3 ml-2 col-lg-4">
+          <div class="text-center">{{variable}}</div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{value}}</h5>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row justify-content-center">
+        <div class="card col-md-6 col-lg-6 text-center mb-5 mb-lg-0 pt-5">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="fas fa-heartbeat"></i></div>
+            <h4 class="">Quick Test Results</h4>
+            <p class="description">{{result}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <a
+          href="/predict"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <button class="btn btn-primary btn-block" type="submit">
+            START AGAIN
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  <!-- End Featured Services Section -->
+</main>
+<!-- End #main -->
+{% endblock%}
