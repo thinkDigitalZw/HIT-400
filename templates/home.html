@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Heart Failure Prediction & Prevention System | Home</title>
+    <title>Heart Disease Prediction & Failure Prevention System</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -38,32 +38,16 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="/predict"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-heartbeat"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">H.F.P & P.S</div>
+          <div class="sidebar-brand-text mx-3">H.D.P & F.P.S</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="home.html">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Users</span>
-          </a>
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-          <a class="nav-link" href="home.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span>
-          </a>
-        </li>
       </ul>
       <!-- End of Sidebar -->
 
@@ -92,8 +76,6 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
-              <div class="topbar-divider d-none d-sm-block"></div>
-
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
                 <a
@@ -105,7 +87,9 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                  <img class="img-profile rounded-circle"
+                                    src="{{session["picture"]}}">
+                  <span class="mx-2 d-none d-lg-inline text-gray-600 small"
                     >{{session["name"]}}</span
                   >
                 </a>
@@ -135,7 +119,7 @@
   <section id="appointment" class="appointment section-bg">
     <div class="container" data-aos="fade-up">
       <div class="text-center mb-5">
-        <h2>Heart Failure Predicition & Prevention System</h2>
+        <h2>Heart Disease Prediction & Failure Prevention System</h2>
       </div>
 
       <form
@@ -286,7 +270,7 @@
             </select>
           </div>
         </div>
-        <div class="row justify-content-center mt-3">
+        <div class="row justify-content-center mt-3 mb-5">
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <button class="btn btn-primary btn-block" type="submit">
               START PROCESSING NOW
@@ -299,19 +283,6 @@
   <!-- {% endif %} -->
   <!-- End Appointment Section -->
 
-  <!-- {% if result %}
-      <section id="featured-services" class="featured-services">
-        <div class="container" data-aos="fade-up">
-          <div class="row justify-content-center">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h2 class="text-center mb-5">I am still young and learning</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-            {% endif %} -->
-  <!-- ======= Featured Services Section ======= -->
-
   {% if result %}
   <section id="featured-services" class="featured-services">
     <div class="container" data-aos="fade-up">
@@ -320,8 +291,8 @@
           <h2 class="text-center mb-5">Here are the results</h2>
         </div>
         {% for variable, value in original_input.items() %}
-        <div class="card mb-3 ml-2 col-lg-4">
-          <div class="text-center">{{variable}}</div>
+        <div class="card mb-3 ml-2 pt-5 col-lg-4">
+          <div class="text-center"><b>{{variable}}</b></div>
           <div class="card-body">
             <h5 class="card-title text-center">{{value}}</h5>
           </div>
@@ -361,7 +332,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Crime Map 2021</span>
+              <span>Copyright &copy; Heart Disease Prediction & Failure Prevention System 2021</span>
             </div>
           </div>
         </footer>

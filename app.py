@@ -9,19 +9,13 @@ import google.auth.transport.requests
 import pandas as pd
 from joblib import load
 
-
-with open(f'models/randomForest.joblib', 'rb') as f:
-    randomForest = load(f)
-
-
-
-app = Flask("Heart Failure Prediction & Prevention System")
-app.secret_key = "Heart Failure Prediction & Prevention System"
+app = Flask("Heart Disease Prediction & Failure Prevention System")
+app.secret_key = "Heart Disease Prediction & Failure Prevention System"
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 GOOGLE_CLIENT_ID = "927998997363-s7p33c44tajcdh8s0sfredhnaudrso8s.apps.googleusercontent.com"
-client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "credentials.json")
 
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
@@ -29,23 +23,20 @@ flow = Flow.from_client_secrets_file(
     redirect_uri="http://127.0.0.1:5000/callback"
 )
 
-
 def login_is_required(function):
     def wrapper(*args, **kwargs):
         if "google_id" not in session:
-            return abort(401)  # Authorization required
+            return render_template('index.html')  # Authorization required
         else:
             return function()
 
     return wrapper
-
 
 @app.route("/login")
 def login():
     authorization_url, state = flow.authorization_url()
     session["state"] = state
     return redirect(authorization_url)
-
 
 @app.route("/callback")
 def callback():
@@ -65,10 +56,12 @@ def callback():
         audience=GOOGLE_CLIENT_ID
     )
 
+    print(id_info, "id_info")
+
     session["google_id"] = id_info.get("sub")
     session["name"] = id_info.get("name")
+    session["picture"] = id_info.get("picture")
     return redirect("/predict")
-
 
 @app.route("/logout")
 def logout():
@@ -80,12 +73,10 @@ def logout():
 def index():
     return render_template('index.html')
 
-
 @app.route("/protected_area")
 @login_is_required
 def protected_area():
     return f"Hello {session['name']}! <br/> <a href='/logout'><button>Logout</button></a>"
-
 
 #Define functions for translating variables to human understandale language
 def translate_predictions(variable):
@@ -144,6 +135,10 @@ def predict():
         slope = request.form['slope']
         ca = request.form['ca']
         thal = request.form['thal']
+
+        #load the trained model instance
+        with open(f'models/randomForest.joblib', 'rb') as f:
+            randomForest = load(f)
 
         input_variables = pd.DataFrame([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]],
                                        columns=['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
